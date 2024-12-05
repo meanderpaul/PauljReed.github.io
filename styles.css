@@ -1,6 +1,3 @@
-body {
-    font-family: 'Roboto', sans-serif;
-}
 /* Define root variables for the color scheme and spacing */
 :root {
     --primary-color: #2c3e50;
@@ -32,6 +29,7 @@ footer {
     width: 100%;
     bottom: 0;
     box-shadow: 0 -4px 2px -2px gray;
+    padding: 1em 0;
 }
 
 /* Navigation styles */
@@ -39,103 +37,4 @@ nav {
     position: sticky;
     top: 0;
     background-color: var(--primary-color);
-    padding: 0.5em 0;
-    z-index: 1000;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-}
-
-nav ul li {
-    margin: 0 1em;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-nav ul li a:hover {
-    color: var(--secondary-color);
-}
-
-/* Section styles */
-section {
-    padding: var(--spacing-unit) calc(2 * var(--spacing-unit));
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-#home {
-    text-align: center;
-}
-
-#latest-story, #feature-book {
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    padding: 1em;
-    margin-bottom: 2em;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-}
-
-#latest-story:hover, #feature-book:hover {
-    transform: scale(1.02);
-}
-
-h1, h2, h3 {
-    color: var(--primary-color);
-}
-
-/* Story tiles styles */
-.story-tiles {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1em;
-    margin-top: 2em;
-}
-
-.story-tile {
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    padding: 1em;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-decoration: none;
-    color: #333;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.story-tile:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.story-tile h3 {
-    margin: 0 0 0.5em 0;
-}
-
-.story-tile p {
-    margin: 0;
-}
-
-/* Responsive design for small and medium devices */
-@media (max-width: 600px) {
-    .story-tile {
-        font-size: 0.9em;
-        padding: 1em;
-    }
-}
-
-@media (max-width: 900px) {
-    .story-tiles {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    }
-}
+    padding: 
