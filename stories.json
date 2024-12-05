@@ -1,0 +1,5 @@
+[
+    { "file": "story1.html", "description": "Brief description or excerpt of Story 1..." },
+    { "file": "story2.html", "description": "Brief description or excerpt of Story 2..." }
+    // Add more stories here
+]
