@@ -1,3 +1,6 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
 /* Define root variables for the color scheme and spacing */
 :root {
     --primary-color: #2c3e50;
