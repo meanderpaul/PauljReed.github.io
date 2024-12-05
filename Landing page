@@ -3,39 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Stories</title>
+    <title>Paul J Reed II's Story Haven</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Welcome to My Stories</h1>
+        <h1>Welcome to Paul J Reed II's Story Haven</h1>
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#stories">Stories</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#stories">Latest Story</a></li>
                 <li><a href="#books">Books</a></li>
             </ul>
         </nav>
     </header>
     <section id="home">
-        <h2>Home</h2>
-        <p>Welcome to my collection of stories and books!</p>
+        <h2>Paul J Reed II's Latest Work</h2>
+        <div id="latest-story">
+            <h3>Latest Short Story Title</h3>
+            <p>This is where the latest short story will be displayed...</p>
+        </div>
+        <div id="feature-book">
+            <h3>Featured Book: Stellar Horizons</h3>
+            <p>Explore my latest book release...</p>
+        </div>
     </section>
     <section id="about">
-        <h2>About</h2>
-        <p>This is where you can write about yourself and your journey as a writer.</p>
+        <h2>About Me</h2>
+        <p>Hi, I'm Paul J Reed II, a 35-year-old author born in Weymouth, MA, and now residing in Plymouth, MA. I've always been a fan of sci-fi movies and fantasy shows. Influenced by shows like Stargate, Star Trek, Star Wars, and Firefly, I embarked on my writing journey. My first book, <em>Stellar Horizons</em>, started as short versions and sections before I combined and refined them into a full novel.</p>
     </section>
     <section id="stories">
-        <h2>Stories</h2>
-        <p>Upload your short stories here.</p>
+        <h2>Short Stories</h2>
+        <p>Upload and organize your short stories here.</p>
     </section>
     <section id="books">
         <h2>Books</h2>
-        <p>List your books here.</p>
+        <p>List your books with descriptions and links here.</p>
     </section>
     <footer>
-        <p>&copy; 2024 My Stories</p>
+        <p>&copy; 2024 Paul J Reed II's Story Haven</p>
     </footer>
     <script src="script.js"></script>
 </body>
