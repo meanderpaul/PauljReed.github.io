@@ -29,7 +29,6 @@ footer {
     width: 100%;
     bottom: 0;
     box-shadow: 0 -4px 2px -2px gray;
-    padding: 1em 0;
 }
 
 /* Navigation styles */
@@ -37,4 +36,32 @@ nav {
     position: sticky;
     top: 0;
     background-color: var(--primary-color);
-    padding: 
+    padding: 0.5em 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 1em;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--secondary-color);
+}
+
+/* Section styles */
+section {
+    padding: var
