@@ -2,11 +2,17 @@ document.addEventListener("DOMContentLoaded", function() {
     // List of story files
     const stories = [
         { file: 'story1.html', description: 'Brief description or excerpt of Story 1...' },
-        { file: 'story2.html', description: 'Brief description or excerpt of Story 2...' },
+        { file: 'story2.html', description: 'Brief description or excerpt of Story 2...' }
         // Add more stories here
     ];
 
     const storyTilesContainer = document.getElementById('story-tiles');
+    
+    // Check if the storyTilesContainer exists
+    if (!storyTilesContainer) {
+        console.error('Error: story-tiles element not found');
+        return;
+    }
 
     stories.forEach(story => {
         // Extract the title from the file name
