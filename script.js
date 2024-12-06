@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Fetch and display short stories
-    fetch('stories.json')
+    // Fetch and display Stellar Universe stories
+    fetch('stellar_universe_stories.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok ' + response.statusText);
@@ -8,11 +8,11 @@ document.addEventListener("DOMContentLoaded", function() {
             return response.json();
         })
         .then(stories => {
-            const storyTilesContainer = document.getElementById('story-tiles');
+            const stellarUniverseContainer = document.getElementById('stellar-universe-stories');
             const latestStoryContainer = document.getElementById('latest-story');
 
-            if (!storyTilesContainer || !latestStoryContainer) {
-                console.error('Error: story-tiles or latest-story element not found');
+            if (!stellarUniverseContainer || !latestStoryContainer) {
+                console.error('Error: stellar-universe-stories or latest-story element not found');
                 return;
             }
 
@@ -27,19 +27,46 @@ document.addEventListener("DOMContentLoaded", function() {
                 </a>
             `;
 
-            // Populate story tiles
+            // Populate Stellar Universe stories
             stories.forEach(story => {
-                const storyTile = document.createElement('div');
-                storyTile.className = 'story-tile';
-                storyTile.innerHTML = `
-                    <h3>${story.title}</h3>
-                    <a href="${story.file}" class="read-now">Read Now</a>
-                `;
-                storyTilesContainer.appendChild(storyTile);
+                const storyLink = document.createElement('a');
+                storyLink.href = story.file;
+                storyLink.textContent = story.title;
+                storyLink.style = "display: block; text-decoration: none; color: var(--text-color);";
+                stellarUniverseContainer.appendChild(storyLink);
             });
         })
         .catch(error => {
-            console.error('Error fetching stories:', error);
+            console.error('Error fetching Stellar Universe stories:', error);
+        });
+
+    // Fetch and display separate stories
+    fetch('separate_stories.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(stories => {
+            const separateStoriesContainer = document.getElementById('separate-stories');
+
+            if (!separateStoriesContainer) {
+                console.error('Error: separate-stories element not found');
+                return;
+            }
+
+            // Populate separate stories
+            stories.forEach(story => {
+                const storyLink = document.createElement('a');
+                storyLink.href = story.file;
+                storyLink.textContent = story.title;
+                storyLink.style = "display: block; text-decoration: none; color: var(--text-color);";
+                separateStoriesContainer.appendChild(storyLink);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching separate stories:', error);
         });
 
     // Fetch and display books
