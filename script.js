@@ -1,28 +1,55 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // Fetch the latest short story
     fetch('stories.json')
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
         .then(stories => {
-            const storyTilesContainer = document.getElementById('story-tiles');
+            const latestStory = stories[stories.length - 1]; // Get the latest story
+            const latestStoryContainer = document.getElementById('latest-story');
             
-            if (!storyTilesContainer) {
-                console.error('Error: story-tiles element not found');
+            if (!latestStoryContainer) {
+                console.error('Error: latest-story element not found');
                 return;
             }
 
-            stories.forEach(story => {
-                const title = story.file.replace('.html', '').replace(/-/g, ' ').replace(/\b\w/g, char => char.toUpperCase());
-                
-                const storyTile = document.createElement('a');
-                storyTile.href = `stories/${story.file}`;
-                storyTile.className = 'story-tile';
-                storyTile.innerHTML = `
-                    <h3>${title}</h3>
-                    <p>${story.description}</p>
-                `;
-                storyTilesContainer.appendChild(storyTile);
-            });
+            latestStoryContainer.innerHTML = `
+                <h3>${latestStory.title}</h3>
+                <p>${latestStory.description}</p>
+                <a href="${latestStory.file}">Read More</a>
+            `;
         })
         .catch(error => {
             console.error('Error fetching stories:', error);
+        });
+
+    // Fetch the latest book
+    fetch('books.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(books => {
+            const latestBook = books[books.length - 1]; // Get the latest book
+            const latestBookContainer = document.getElementById('feature-book');
+            
+            if (!latestBookContainer) {
+                console.error('Error: feature-book element not found');
+                return;
+            }
+
+            latestBookContainer.innerHTML = `
+                <h3>${latestBook.title}</h3>
+                <p>${latestBook.description}</p>
+                <a href="${latestBook.file}">Read More</a>
+            `;
+        })
+        .catch(error => {
+            console.error('Error fetching books:', error);
         });
 });
