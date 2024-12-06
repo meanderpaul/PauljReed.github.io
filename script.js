@@ -9,12 +9,24 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .then(stories => {
             const storyTilesContainer = document.getElementById('story-tiles');
-            
-            if (!storyTilesContainer) {
-                console.error('Error: story-tiles element not found');
+            const latestStoryContainer = document.getElementById('latest-story');
+
+            if (!storyTilesContainer || !latestStoryContainer) {
+                console.error('Error: story-tiles or latest-story element not found');
                 return;
             }
 
+            // Sort stories by date to get the latest story
+            stories.sort((a, b) => new Date(b.date) - new Date(a.date));
+            const latestStory = stories[0];
+
+            // Populate latest story
+            latestStoryContainer.innerHTML = `
+                <h3>${latestStory.title}</h3>
+                <a href="${latestStory.file}" class="read-now">Read Now</a>
+            `;
+
+            // Populate story tiles
             stories.forEach(story => {
                 const storyTile = document.createElement('div');
                 storyTile.className = 'story-tile';
@@ -39,12 +51,24 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .then(books => {
             const bookTilesContainer = document.getElementById('book-tiles');
-            
-            if (!bookTilesContainer) {
-                console.error('Error: book-tiles element not found');
+            const latestBookContainer = document.getElementById('feature-book');
+
+            if (!bookTilesContainer || !latestBookContainer) {
+                console.error('Error: book-tiles or feature-book element not found');
                 return;
             }
 
+            // Sort books by date to get the latest book
+            books.sort((a, b) => new Date(b.date) - new Date(a.date));
+            const latestBook = books[0];
+
+            // Populate latest book
+            latestBookContainer.innerHTML = `
+                <h3>${latestBook.title}</h3>
+                <a href="${latestBook.file}" class="read-now">Read Now</a>
+            `;
+
+            // Populate book tiles
             books.forEach(book => {
                 const bookTile = document.createElement('div');
                 bookTile.className = 'book-tile';
