@@ -17,6 +17,7 @@ body {
     color: var(--text-color);
     margin: 0;
     padding: 0;
+    padding-bottom: 4em; /* Add padding to the bottom to avoid overlap with footer */
 }
 
 header, footer {
