@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Fetch the latest short story
+    // Fetch and display short stories
     fetch('stories.json')
         .then(response => {
             if (!response.ok) {
@@ -8,25 +8,28 @@ document.addEventListener("DOMContentLoaded", function() {
             return response.json();
         })
         .then(stories => {
-            const latestStory = stories[stories.length - 1]; // Get the latest story
-            const latestStoryContainer = document.getElementById('latest-story');
+            const storyTilesContainer = document.getElementById('story-tiles');
             
-            if (!latestStoryContainer) {
-                console.error('Error: latest-story element not found');
+            if (!storyTilesContainer) {
+                console.error('Error: story-tiles element not found');
                 return;
             }
 
-            latestStoryContainer.innerHTML = `
-                <h3>${latestStory.title}</h3>
-                <p>${latestStory.description}</p>
-                <a href="${latestStory.file}">Read More</a>
-            `;
+            stories.forEach(story => {
+                const storyTile = document.createElement('div');
+                storyTile.className = 'story-tile';
+                storyTile.innerHTML = `
+                    <h3>${story.title}</h3>
+                    <a href="${story.file}" class="read-now">Read Now</a>
+                `;
+                storyTilesContainer.appendChild(storyTile);
+            });
         })
         .catch(error => {
             console.error('Error fetching stories:', error);
         });
 
-    // Fetch the latest book
+    // Fetch and display books
     fetch('books.json')
         .then(response => {
             if (!response.ok) {
@@ -35,19 +38,21 @@ document.addEventListener("DOMContentLoaded", function() {
             return response.json();
         })
         .then(books => {
-            const latestBook = books[books.length - 1]; // Get the latest book
-            const latestBookContainer = document.getElementById('feature-book');
+            const bookTilesContainer = document.getElementById('book-tiles');
             
-            if (!latestBookContainer) {
-                console.error('Error: feature-book element not found');
+            if (!bookTilesContainer) {
+                console.error('Error: book-tiles element not found');
                 return;
             }
 
-            latestBookContainer.innerHTML = `
-                <h3>${latestBook.title}</h3>
-                <p>${latestBook.description}</p>
-                <a href="${latestBook.file}">Read More</a>
-            `;
+            books.forEach(book => {
+                const bookTile = document.createElement('div');
+                bookTile.className = 'book-tile';
+                bookTile.innerHTML = `
+                    <h3>${book.title}</h3>
+                `;
+                bookTilesContainer.appendChild(bookTile);
+            });
         })
         .catch(error => {
             console.error('Error fetching books:', error);
