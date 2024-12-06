@@ -22,8 +22,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // Populate latest story
             latestStoryContainer.innerHTML = `
-                <h3>${latestStory.title}</h3>
-                <a href="${latestStory.file}" class="read-now">Read Now</a>
+                <a href="${latestStory.file}" style="color: var(--text-color); text-decoration: none; display: block; padding: 1em; background-color: var(--light-color); border: 1px solid var(--dark-color); border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                    <h3 style="margin: 0;">${latestStory.title}</h3>
+                </a>
             `;
 
             // Populate story tiles
@@ -64,8 +65,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // Populate latest book
             latestBookContainer.innerHTML = `
-                <h3>${latestBook.title}</h3>
-                <a href="${latestBook.file}" class="read-now">Read Now</a>
+                <a href="${latestBook.file}" style="color: var(--text-color); text-decoration: none; display: block; padding: 1em; background-color: var(--light-color); border: 1px solid var(--dark-color); border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                    <h3 style="margin: 0;">${latestBook.title}</h3>
+                </a>
             `;
 
             // Populate book tiles
